@@ -9,7 +9,7 @@ section .text
 ft_strcpy:
     mov rax, rdi            ; return dst
 _loop:
-    cmp byte [rsi], 0       ; *src == 0
+    cmp byte [rsi], 0       ; compare *src with 0
     mov cl, byte [rsi]      ; *dst = *src
     mov byte [rdi], cl
     lea rdi, [rdi + 1]      ; ++dst
