@@ -1,13 +1,13 @@
 NAME	= libasm.a
 OBJ_DIR	= obj
 
-SRC		= ft_strlen.s ft_strcpy.s
+SRC		= ft_strlen.s ft_strcpy.s ft_strcmp.s
 OFILES	= $(SRC:.s=.o)
 OBJ		= $(addprefix $(OBJ_DIR)/, $(OFILES))
 
 
 $(OBJ_DIR)/%.o: %.s
-		nasm -felf64 $< -o $@
+		nasm -felf64 -g -F dwarf $< -o $@
 
 all:	$(NAME)
 
