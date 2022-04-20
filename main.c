@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 19:35:22 by mleblanc          #+#    #+#             */
-/*   Updated: 2022/04/19 23:49:59 by mleblanc         ###   ########.fr       */
+/*   Updated: 2022/04/19 23:54:38 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,9 @@ int main(int argc, char** argv) {
     r = write(1, 0, 5);
     printf("libc: %ld, errno: %d\n", r, errno);
     r = ft_write(1, 0, 5);
+    printf("ft  : %ld, errno: %d\n", r, errno);
+    r = write(1, "test\n", 5);
+    printf("libc: %ld, errno: %d\n", r, errno);
+    r = ft_write(1, "test\n", 5);
     printf("ft  : %ld, errno: %d\n", r, errno);
 }
