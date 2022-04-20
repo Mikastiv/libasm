@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 19:35:22 by mleblanc          #+#    #+#             */
-/*   Updated: 2022/04/19 22:53:02 by mleblanc         ###   ########.fr       */
+/*   Updated: 2022/04/19 23:49:59 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
+#include <sys/syscall.h>
 
 int main(int argc, char** argv) {
     (void)argc;
@@ -32,8 +33,25 @@ int main(int argc, char** argv) {
         printf("libc: %d\n", strcmp(argv[1], argv[2]));
     }
 
-    ssize_t r = ft_write(5, "test\n", 5);
-    printf("ft  : %ld, errno: %zu\n", r, errno);
+    ssize_t r;
+    r = write(1, "test\n", 5);
+    printf("libc: %ld, errno: %d\n", r, errno);
+    r = ft_write(1, "test\n", 5);
+    printf("ft  : %ld, errno: %d\n", r, errno);
+    r = write(-1, "test\n", 5);
+    printf("libc: %ld, errno: %d\n", r, errno);
+    r = ft_write(-1, "test\n", 5);
+    printf("ft  : %ld, errno: %d\n", r, errno);
     r = write(5, "test\n", 5);
-    printf("libc: %ld, errno: %zu\n", r, errno);
+    printf("libc: %ld, errno: %d\n", r, errno);
+    r = ft_write(5, "test\n", 5);
+    printf("ft  : %ld, errno: %d\n", r, errno);
+    r = write(5, 0, 5);
+    printf("libc: %ld, errno: %d\n", r, errno);
+    r = ft_write(5, 0, 5);
+    printf("ft  : %ld, errno: %d\n", r, errno);
+    r = write(1, 0, 5);
+    printf("libc: %ld, errno: %d\n", r, errno);
+    r = ft_write(1, 0, 5);
+    printf("ft  : %ld, errno: %d\n", r, errno);
 }
