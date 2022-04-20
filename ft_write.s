@@ -17,7 +17,7 @@ ft_write:
     cmp rax, 0                  ; compare syscall return with 0
     jl  _error                  ; if (return_value < 0) error
 
-    mov dword [r8], 0
+    mov dword [r8], 0           ; errno = 0
     ret
 
 _error:
