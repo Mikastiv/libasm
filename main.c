@@ -6,13 +6,15 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 19:35:22 by mleblanc          #+#    #+#             */
-/*   Updated: 2022/04/19 21:22:00 by mleblanc         ###   ########.fr       */
+/*   Updated: 2022/04/19 22:53:02 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
+#include <errno.h>
 
 int main(int argc, char** argv) {
     (void)argc;
@@ -29,4 +31,9 @@ int main(int argc, char** argv) {
         printf("ft  : %d\n", ft_strcmp(argv[1], argv[2]));
         printf("libc: %d\n", strcmp(argv[1], argv[2]));
     }
+
+    ssize_t r = ft_write(5, "test\n", 5);
+    printf("ft  : %ld, errno: %zu\n", r, errno);
+    r = write(5, "test\n", 5);
+    printf("libc: %ld, errno: %zu\n", r, errno);
 }
