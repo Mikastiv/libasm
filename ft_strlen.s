@@ -11,5 +11,5 @@ _loop:
     inc rax                 ; ++len
     cmp byte [rdi], 0       ; *str == 0
     lea rdi, [rdi + 1]      ; ++str
-    jne _loop               ; if *str != 0
+    jne _loop               ; if (*str != 0) loop
     ret
