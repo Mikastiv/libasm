@@ -16,6 +16,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <sys/syscall.h>
+#include <stdlib.h>
 
 int main(int argc, char** argv) {
     (void)argc;
@@ -61,6 +62,12 @@ int main(int argc, char** argv) {
 
     char* st = ft_strdup("Hello World 1234123412341234123412341234123412341234123412341234123412341234");
     printf("%s\n", st);
+    free(st);
     st = strdup("Hello World 1234123412341234123412341234123412341234123412341234123412341234");
     printf("%s\n", st);
+    free(st);
+
+    char buf[20] = {};
+    r = ft_read(0, buf, 10);
+    printf("%s\n", buf);
 }
