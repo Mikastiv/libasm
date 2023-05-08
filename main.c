@@ -58,4 +58,9 @@ int main(int argc, char** argv) {
     printf("libc: %ld, errno: %d\n", r, errno);
     r = ft_write(1, "test\n", 5);
     printf("ft  : %ld, errno: %d\n", r, errno);
+
+    char* st = ft_strdup("Hello World 1234123412341234123412341234123412341234123412341234123412341234");
+    printf("%s\n", st);
+    st = strdup("Hello World 1234123412341234123412341234123412341234123412341234123412341234");
+    printf("%s\n", st);
 }

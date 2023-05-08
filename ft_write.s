@@ -3,7 +3,7 @@ extern __errno_location
 
 section .text
 
-; rax -> return value
+; rax -> return value (int)
 ; rdi -> int fd
 ; rsi -> const void* ptr
 ; rdx -> size_t count

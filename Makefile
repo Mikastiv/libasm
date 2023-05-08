@@ -1,7 +1,7 @@
 NAME	= libasm.a
 OBJ_DIR	= obj
 
-SRC		= ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s
+SRC		= ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_strdup.s
 OFILES	= $(SRC:.s=.o)
 OBJ		= $(addprefix $(OBJ_DIR)/, $(OFILES))
 

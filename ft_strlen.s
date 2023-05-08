@@ -2,7 +2,7 @@ global ft_strlen
 
 section .text
 
-; rax -> return value
+; rax -> return value (size_t)
 ; rdi -> const char* s
 
 ft_strlen:
