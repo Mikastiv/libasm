@@ -81,4 +81,14 @@ int main(int argc, char** argv) {
     printf("%s\n", ft_strchr("Hello World!", 'l'));
     printf("%s\n", ft_strchr("Hello World!", 'H'));
     printf("%s\n", ft_strchr("Hello World!", '1'));
+
+
+    printf("------------------\n");
+    printf("%d\n", ft_is_base_valid(""));
+    printf("%d\n", ft_is_base_valid("1"));
+    printf("%d\n", ft_is_base_valid("12"));
+    printf("%d\n", ft_is_base_valid("11"));
+    printf("%d\n", ft_is_base_valid("112"));
+    printf("%d\n", ft_is_base_valid("123"));
+    printf("%d\n", ft_is_base_valid("1234561"));
 }

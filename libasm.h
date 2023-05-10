@@ -24,6 +24,7 @@ int ft_atoi_base(char* str, char* base);
 
 char* ft_strchr(const char* s, char c);
 int ft_isspace(int c);
+int	ft_is_base_valid(const char *base);
 
 typedef struct s_list
 {
