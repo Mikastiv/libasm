@@ -10,7 +10,7 @@ ft_strcpy:
     mov rax, rdi                ; return dst
     xor rcx, rcx                ; i = 0;
 _loop:
-    movzx edx, byte [rsi + rcx]  ; dst[i] = src[i]
+    movzx rdx, byte [rsi + rcx] ; dst[i] = src[i]
     mov byte [rdi + rcx], dl
     inc rcx                     ; ++i
     test dl, dl                 ; src[i] & src[i] (check for 0)
