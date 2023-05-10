@@ -46,33 +46,33 @@ ft_is_base_valid:
     push r14
     mov r13, rdi
     call ft_strlen
-    cmp rax, 2                  ; if (len < 2)
+    cmp rax, 2                      ; if (len < 2)
     jl _l5
-    xor r12, r12                ; i = 0
+    xor r12, r12                    ; i = 0
 _l3:
-    movzx r14, byte [r13 + r12] ; c = s[i]
-    test r14, r14               ; if (c == '\0')
+    movzx r14, byte [r13 + r12]     ; c = s[i]
+    test r14, r14                   ; if (c == '\0')
     jne _l4
-    mov rax, 1
+    mov rax, 1                      ; return 1
     jmp _l6
 _l4:
-    mov rdi, r14
+    mov rdi, r14                    ; if (ft_isspace(c))
     call ft_isspace
     test rax, rax
     jne _l5
-    cmp r14, 43
+    cmp r14, 43                     ; if (c == '+')
     je _l5
-    cmp r14, 45
+    cmp r14, 45                     ; if (c == '-')
     je _l5
-    lea r14, [r13 + r12 + 1]
+    lea r14, [r13 + r12 + 1]        ; if (ft_strchr(s + i + 1, c)) check for duplicate characters
     mov rdi, r14
     movzx rsi, byte [r13 + r12]
     call ft_strchr
-    inc r12
+    inc r12                         ; ++i
     test rax, rax
     je _l3
 _l5:
-    xor rax, rax                ; ret 0
+    xor rax, rax                    ; ret 0
 _l6:
     pop r14
     pop r13

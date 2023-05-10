@@ -90,5 +90,7 @@ int main(int argc, char** argv) {
     printf("%d\n", ft_is_base_valid("11"));
     printf("%d\n", ft_is_base_valid("112"));
     printf("%d\n", ft_is_base_valid("123"));
-    printf("%d\n", ft_is_base_valid("1234561"));
+    printf("%d\n", ft_is_base_valid("123456"));
+    printf("%d\n", ft_is_base_valid("123+456"));
+    printf("%d\n", ft_is_base_valid("-123456"));
 }
