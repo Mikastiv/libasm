@@ -1,13 +1,13 @@
 NAME	= libasm.a
 OBJ_DIR	= obj
 
-SRC		= ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s ft_atoi_base.s
-BSRC	= ft_atoi_base.s
-OFILES	= $(SRC:.s=.o)
+SRC		= ft_strlen.asm ft_strcpy.asm ft_strcmp.asm ft_write.asm ft_read.asm ft_strdup.asm ft_atoi_base.asm ft_list_push_front.asm
+BSRC	= ft_atoi_base.asm ft_list_push_front.asm
+OFILES	= $(SRC:.asm=.o)
 OBJ		= $(addprefix $(OBJ_DIR)/, $(OFILES))
 
 
-$(OBJ_DIR)/%.o: %.s
+$(OBJ_DIR)/%.o: %.asm
 		nasm -felf64 -g -F dwarf -i /usr/include $< -o $@
 
 all:	$(NAME)
