@@ -48,7 +48,7 @@ ft_is_base_valid:
     xor r12, r12                    ; i = 0
 .loop:
     movzx r14, byte [r13 + r12]     ; c = s[i]
-    test r14, r14                   ; if (c == '\0')
+    test r14b, r14b                   ; if (c == '\0')
     jne .skip_return
     mov rax, 1                      ; return 1
     jmp .end
@@ -115,7 +115,7 @@ ft_atoi_base:
     mov rsi, 1                      ; sign = 1
 .sign_loop:
     movzx rdi, byte [r12 + r14]     ; c = s[i]
-    cmp rdi, 43                     ; if (c == '+')
+    cmp dil, 43                     ; if (c == '+')
     jne .check_minus
     inc r14                         ; ++i
     jmp .sign_loop                  ; loop
@@ -136,7 +136,7 @@ ft_atoi_base:
 .convert_loop:
     mov rdi, r13
     movzx rsi, byte [r12 + r14]     ; c = s[i]
-    test rsi, rsi                   ; if (c == '\0')
+    test sil, sil                   ; if (c == '\0')
     je .value_end
     call ft_strchr                  ; base_ptr = ft_strchr(base, c)
     test rax, rax                   ; if (base_ptr == NULL) loop done
