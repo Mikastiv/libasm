@@ -13,11 +13,11 @@ ft_write:
     syscall                     ; call sys_write
 
     cmp rax, 0                  ; compare syscall return with 0
-    jl  _error                  ; if (return_value < 0) error
+    jl  .error                  ; if (return_value < 0) error
 
     ret
 
-_error:
+.error:
     neg rax                     ; turn error to positive value
     mov rdi, rax                ; save error value
     call __errno_location       ; get errno address

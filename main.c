@@ -71,26 +71,5 @@ int main(int argc, char** argv) {
     // r = ft_read(0, buf, 10);
     // printf("%s\n", buf);
 
-    int c = ft_isspace(9);
-    printf("%d\n", c);
-
-    printf("%s\n", ft_strchr("123345657868789789", '8'));
-    printf("%s\n", ft_strchr("", '\0'));
-    printf("%s\n", ft_strchr("123345657868789789", '\0'));
-    printf("%s\n", ft_strchr("Hello World!", '!'));
-    printf("%s\n", ft_strchr("Hello World!", 'l'));
-    printf("%s\n", ft_strchr("Hello World!", 'H'));
-    printf("%s\n", ft_strchr("Hello World!", '1'));
-
-
-    printf("------------------\n");
-    printf("%d\n", ft_is_base_valid(""));
-    printf("%d\n", ft_is_base_valid("1"));
-    printf("%d\n", ft_is_base_valid("12"));
-    printf("%d\n", ft_is_base_valid("11"));
-    printf("%d\n", ft_is_base_valid("112"));
-    printf("%d\n", ft_is_base_valid("123"));
-    printf("%d\n", ft_is_base_valid("123456"));
-    printf("%d\n", ft_is_base_valid("123+456"));
-    printf("%d\n", ft_is_base_valid("-123456"));
+    printf("%d\n", ft_atoi_base("  +++--+++-456731hg", "0123456789"));
 }
