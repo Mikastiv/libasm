@@ -25,6 +25,18 @@ int data_cmp(void* a, void* b) {
     return *ia - *ib;
 }
 
+int free_cmp(void* a, void* b) {
+    int* ia = a;
+    int* ib = b;
+    return *ia - *ib;
+}
+
+int remove_all(void* a, void* b) {
+    (void)a;
+    (void)b;
+    return 0;
+}
+
 int main(int argc, char** argv) {
     if (argc > 1) {
         printf("ft  : %zu\n", ft_strlen(argv[1]));
@@ -85,7 +97,7 @@ int main(int argc, char** argv) {
     data[1] = 128;
     data[2] = 64;
     data[3] = 128128;
-    data[4] = 646464;
+    data[4] = 64;
     ft_list_push_front(&list, data);
     ft_list_push_front(&list, data + 1);
     ft_list_push_front(&list, data + 2);
@@ -106,11 +118,9 @@ int main(int argc, char** argv) {
         printf("%d\n", *p);
         ptr = ptr->next;
     }
-    ptr = list;
-    while (ptr) {
-        t_list* tmp = ptr;
-        ptr = ptr->next;
-        free(tmp);
-    }
+    int x = 64;
+    ft_list_remove_if(&list, &x, &free_cmp, &free);
+    ft_list_remove_if(&list, &x, &remove_all, &free);
     free(data);
+    ft_list_remove_if(&list, &x, &remove_all, &free);
 }
