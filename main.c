@@ -72,4 +72,31 @@ int main(int argc, char** argv) {
     // printf("%s\n", buf);
 
     printf("%d\n", ft_atoi_base("  +++--+++-456731hg", "0123456789"));
+
+    t_list* list = NULL;
+    int* data = malloc(5 * sizeof(int));
+    data[0] = 64;
+    data[1] = 128;
+    data[2] = 6464;
+    data[3] = 128128;
+    data[4] = 646464;
+    ft_list_push_front(&list, data);
+    ft_list_push_front(&list, data + 1);
+    ft_list_push_front(&list, data + 2);
+    ft_list_push_front(&list, data + 3);
+    ft_list_push_front(&list, data + 4);
+
+    t_list* ptr = list;
+    while (ptr) {
+        const int* p = ptr->data;
+        printf("%d\n", *p);
+        ptr = ptr->next;
+    }
+    ptr = list;
+    while (ptr) {
+        t_list* tmp = ptr;
+        ptr = ptr->next;
+        free(tmp);
+    }
+    free(data);
 }

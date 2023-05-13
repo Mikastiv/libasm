@@ -28,5 +28,14 @@ ft_create_elem:
 ; rsi -> void* data
 
 ft_list_push_front:
-
+    push rdi
+    mov rdi, rsi
+    call ft_create_elem             ; create new_node
+    test rax, rax
+    je .end
+    pop rdi
+    mov rsi, qword [rdi]            ; v = *begin_list
+    mov qword [rax + 8], rsi        ; new_node->next = v
+    mov qword [rdi], rax            ; *begin_list = new_node
+.end:
     ret
