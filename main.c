@@ -18,8 +18,14 @@
 #include <sys/syscall.h>
 #include <stdlib.h>
 
+int data_cmp(void* a, void* b) {
+    int* ia = a;
+    int* ib = b;
+
+    return *ia - *ib;
+}
+
 int main(int argc, char** argv) {
-    (void)argc;
     if (argc > 1) {
         printf("ft  : %zu\n", ft_strlen(argv[1]));
         printf("libc: %zu\n", strlen(argv[1]));
@@ -77,7 +83,7 @@ int main(int argc, char** argv) {
     int* data = malloc(5 * sizeof(int));
     data[0] = 64;
     data[1] = 128;
-    data[2] = 6464;
+    data[2] = 64;
     data[3] = 128128;
     data[4] = 646464;
     ft_list_push_front(&list, data);
@@ -93,6 +99,13 @@ int main(int argc, char** argv) {
         ptr = ptr->next;
     }
     printf("size: %d\n", ft_list_size(list));
+    ft_list_sort(&list, &data_cmp);
+    ptr = list;
+    while (ptr) {
+        const int* p = ptr->data;
+        printf("%d\n", *p);
+        ptr = ptr->next;
+    }
     ptr = list;
     while (ptr) {
         t_list* tmp = ptr;

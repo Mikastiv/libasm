@@ -17,6 +17,6 @@ ft_list_size:
     je .end
     mov rdi, qword [rdi + 8]    ; list = list->next
     inc rax                     ; ++size
-    jmp .loop                   ; loop
+    jmp .loop
 .end:
     ret
