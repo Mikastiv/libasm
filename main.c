@@ -92,17 +92,22 @@ int main(int argc, char** argv) {
     printf("%d\n", ft_atoi_base("  +++--+++-456731hg", "0123456789"));
 
     t_list* list = NULL;
-    int* data = malloc(5 * sizeof(int));
-    data[0] = 64;
-    data[1] = 128;
-    data[2] = 64;
-    data[3] = 128128;
-    data[4] = 64;
-    ft_list_push_front(&list, data);
-    ft_list_push_front(&list, data + 1);
-    ft_list_push_front(&list, data + 2);
-    ft_list_push_front(&list, data + 3);
-    ft_list_push_front(&list, data + 4);
+    int* data[5];
+    data[0] = malloc(1 * sizeof(int));
+    data[1] = malloc(1 * sizeof(int));
+    data[2] = malloc(1 * sizeof(int));
+    data[3] = malloc(1 * sizeof(int));
+    data[4] = malloc(1 * sizeof(int));
+    *(data[0]) = 64;
+    *(data[1]) = 128;
+    *(data[2]) = 64;
+    *(data[3]) = 128128;
+    *(data[4]) = 64;
+    ft_list_push_front(&list, data[0]);
+    ft_list_push_front(&list, data[1]);
+    ft_list_push_front(&list, data[2]);
+    ft_list_push_front(&list, data[3]);
+    ft_list_push_front(&list, data[4]);
 
     t_list* ptr = list;
     while (ptr) {
@@ -121,6 +126,5 @@ int main(int argc, char** argv) {
     int x = 64;
     ft_list_remove_if(&list, &x, &free_cmp, &free);
     ft_list_remove_if(&list, &x, &remove_all, &free);
-    free(data);
     ft_list_remove_if(&list, &x, &remove_all, &free);
 }
