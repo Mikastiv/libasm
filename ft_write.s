@@ -1,6 +1,6 @@
 global ft_write
 
-%include "ft_syscall_error.asm"
+%include "ft_syscall_error.s"
 
 section .text
 
