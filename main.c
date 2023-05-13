@@ -92,6 +92,7 @@ int main(int argc, char** argv) {
         printf("%d\n", *p);
         ptr = ptr->next;
     }
+    printf("size: %d\n", ft_list_size(list));
     ptr = list;
     while (ptr) {
         t_list* tmp = ptr;

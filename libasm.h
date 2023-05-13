@@ -31,3 +31,4 @@ typedef struct s_list
 }   t_list;
 
 void ft_list_push_front(t_list **list, void *data);
+int ft_list_size(t_list *list);
