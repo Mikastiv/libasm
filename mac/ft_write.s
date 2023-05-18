@@ -10,8 +10,7 @@ section .text
 ; rdx -> size_t count
 
 _ft_write:
-    mov rax, 1                  ; write syscall value
+    mov rax, 0x2000004          ; write syscall value
     syscall                     ; call sys_write
-    cmp rax, 0                  ; compare syscall return with 0
-    jl _syscall_error           ; if (return_value < 0) error
+    jc _syscall_error           ; if carry flag set -> error
     ret

@@ -52,31 +52,31 @@ int main(int argc, char** argv) {
         printf("libc: %d\n", strcmp(argv[1], argv[2]));
     }
 
-    // ssize_t r;
-    // r = write(1, "test\n", 5);
-    // printf("libc: %ld, errno: %d\n", r, errno);
-    // r = ft_write(1, "test\n", 5);
-    // printf("ft  : %ld, errno: %d\n", r, errno);
-    // r = write(-1, "test\n", 5);
-    // printf("libc: %ld, errno: %d\n", r, errno);
-    // r = ft_write(-1, "test\n", 5);
-    // printf("ft  : %ld, errno: %d\n", r, errno);
-    // r = write(5, "test\n", 5);
-    // printf("libc: %ld, errno: %d\n", r, errno);
-    // r = ft_write(5, "test\n", 5);
-    // printf("ft  : %ld, errno: %d\n", r, errno);
-    // r = write(5, 0, 5);
-    // printf("libc: %ld, errno: %d\n", r, errno);
-    // r = ft_write(5, 0, 5);
-    // printf("ft  : %ld, errno: %d\n", r, errno);
-    // r = write(1, 0, 5);
-    // printf("libc: %ld, errno: %d\n", r, errno);
-    // r = ft_write(1, 0, 5);
-    // printf("ft  : %ld, errno: %d\n", r, errno);
-    // r = write(1, "test\n", 5);
-    // printf("libc: %ld, errno: %d\n", r, errno);
-    // r = ft_write(1, "test\n", 5);
-    // printf("ft  : %ld, errno: %d\n", r, errno);
+    ssize_t r;
+    r = write(1, "test\n", 5);
+    printf("libc: %ld, errno: %d\n", r, errno);
+    r = ft_write(1, "test\n", 5);
+    printf("ft  : %ld, errno: %d\n", r, errno);
+    r = write(-1, "test\n", 5);
+    printf("libc: %ld, errno: %d\n", r, errno);
+    r = ft_write(-1, "test\n", 5);
+    printf("ft  : %ld, errno: %d\n", r, errno);
+    r = write(5, "test\n", 5);
+    printf("libc: %ld, errno: %d\n", r, errno);
+    r = ft_write(5, "test\n", 5);
+    printf("ft  : %ld, errno: %d\n", r, errno);
+    r = write(5, 0, 5);
+    printf("libc: %ld, errno: %d\n", r, errno);
+    r = ft_write(5, 0, 5);
+    printf("ft  : %ld, errno: %d\n", r, errno);
+    r = write(1, 0, 5);
+    printf("libc: %ld, errno: %d\n", r, errno);
+    r = ft_write(1, 0, 5);
+    printf("ft  : %ld, errno: %d\n", r, errno);
+    r = write(1, "test\n", 5);
+    printf("libc: %ld, errno: %d\n", r, errno);
+    r = ft_write(1, "test\n", 5);
+    printf("ft  : %ld, errno: %d\n", r, errno);
 
     char* st = ft_strdup("Hello World 1234123412341234123412341234123412341234123412341234123412341234");
     printf("%s\n", st);
@@ -89,7 +89,9 @@ int main(int argc, char** argv) {
     // r = ft_read(0, buf, 10);
     // printf("%s\n", buf);
 
-    printf("%d\n", ft_atoi_base("  +++--+++-456731hg", "0123456789"));
+    printf("atoi: %d\n", ft_atoi_base("  +++--+++-456731hg", "0123456789"));
+    printf("atoi: %d\n", ft_atoi_base("0123456789abcdef", "0123456789abcdef"));
+    printf("atoi: %x\n", ft_atoi_base(" --+0000111100001111", "01"));
 
     t_list* list = NULL;
     int* data[5];

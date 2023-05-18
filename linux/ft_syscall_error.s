@@ -4,7 +4,7 @@ section .text
 
 _syscall_error:
     neg rax                     ; turn error to positive value
-    push rdi                    ; save error value
+    push rax                    ; save error value
     call __errno_location       ; get errno address
     pop rdi                     ; get back error value
     mov qword [rax], rdi        ; errno = rax
