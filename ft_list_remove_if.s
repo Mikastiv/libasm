@@ -35,7 +35,7 @@ ft_list_remove_if:
     mov rdi, qword [rbx]
     mov rsi, r13
     call r14                        ; res = cmp(curr->data, data_ref)
-    test rax, rax                   ; if (res == 0)
+    test eax, eax                   ; if (res == 0) (eax because of int)
     jne .next_loop
     mov rdi, rbx                    ; tmp = curr
     test r15, r15                   ; if (prev == NULL)

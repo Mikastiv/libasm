@@ -8,9 +8,18 @@ BOFILES	= $(BSRC:.s=.o)
 OBJ		= $(addprefix $(OBJ_DIR)/, $(OFILES))
 BOBJ	= $(addprefix $(OBJ_DIR)/, $(BOFILES))
 
+OS		= $(shell uname -s)
+
+ifeq ($(OS),Linux)
+    FLAGS = -felf64
+else ifeq ($(OS),Darwin)
+    FLAGS = -fmacho64
+else
+    $(error Unsupported OS: $(OS))
+endif
 
 $(OBJ_DIR)/%.o: %.s
-		nasm -felf64 -g -F dwarf -i /usr/include $< -o $@
+		nasm $(FLAGS) -g -F dwarf -i /usr/include $< -o $@
 
 all:	$(NAME)
 
