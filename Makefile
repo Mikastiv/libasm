@@ -12,13 +12,15 @@ OS		= $(shell uname -s)
 
 ifeq ($(OS),Linux)
     FLAGS = -felf64
+	SRC_FOLDER = linux
 else ifeq ($(OS),Darwin)
     FLAGS = -fmacho64
+	SRC_FOLDER = mac
 else
     $(error Unsupported OS: $(OS))
 endif
 
-$(OBJ_DIR)/%.o: %.s
+$(OBJ_DIR)/%.o: $(SRC_FOLDER)/%.s
 		nasm $(FLAGS) -g -F dwarf -i /usr/include $< -o $@
 
 all:	$(NAME)

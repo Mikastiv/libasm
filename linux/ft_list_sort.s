@@ -1,5 +1,4 @@
 global ft_list_sort
-extern malloc
 
 section .text
 

@@ -1,5 +1,5 @@
-global ft_atoi_base
-extern ft_strlen
+global _ft_atoi_base
+extern _ft_strlen
 
 section .text
 
@@ -91,7 +91,7 @@ ft_base_index:
 ; rdi -> const char* s
 ; rsi -> const char* base
 
-ft_atoi_base:
+_ft_atoi_base:
     push r12
     push r13
     push r14
