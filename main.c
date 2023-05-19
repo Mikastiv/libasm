@@ -90,7 +90,7 @@ int main(int argc, char** argv) {
     printf("%s\n", buf);
 
     printf("atoi: %d\n", ft_atoi_base("  +++--+++-456731hg", "0123456789"));
-    printf("atoi: %d\n", ft_atoi_base("0123456789abcdef", "0123456789abcdef"));
+    printf("atoi: %x\n", ft_atoi_base("12368bcf", "0123456789abcdef"));
     printf("atoi: %x\n", ft_atoi_base(" --+0000111100001111", "01"));
 
     t_list* list = NULL;
