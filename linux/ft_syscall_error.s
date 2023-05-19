@@ -7,6 +7,6 @@ _syscall_error:
     push rax                    ; save error value
     call __errno_location       ; get errno address
     pop rdi                     ; get back error value
-    mov qword [rax], rdi        ; errno = rax
+    mov dword [rax], edi        ; errno = edi (errno is 32bits)
     mov rax, -1                 ; return -1
     ret

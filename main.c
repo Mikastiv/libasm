@@ -85,9 +85,9 @@ int main(int argc, char** argv) {
     printf("%s\n", st);
     free(st);
 
-    // char buf[20] = {};
-    // r = ft_read(0, buf, 10);
-    // printf("%s\n", buf);
+    char buf[20] = {};
+    r = ft_read(0, buf, 10);
+    printf("%s\n", buf);
 
     printf("atoi: %d\n", ft_atoi_base("  +++--+++-456731hg", "0123456789"));
     printf("atoi: %d\n", ft_atoi_base("0123456789abcdef", "0123456789abcdef"));
