@@ -25,6 +25,12 @@ $(OBJ_DIR)/%.o: $(SRC_FOLDER)/%.s
 
 all:	$(NAME)
 
+build:	all
+	clang -lasm main.c
+
+build_bonus:	bonus
+	clang -lasm -DBONUS main.c
+
 $(NAME): $(OBJ_DIR) $(OBJ)
 		ar rcs $(NAME) $(OBJ)
 
@@ -41,3 +47,5 @@ fclean:	clean
 		rm -rf $(NAME)
 
 re:		fclean all
+
+.PHONY: all bonus clean fclean re build build_bonus

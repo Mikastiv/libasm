@@ -89,6 +89,7 @@ int main(int argc, char** argv) {
     r = ft_read(0, buf, 10);
     printf("%s\n", buf);
 
+#ifdef BONUS
     printf("atoi: %d\n", ft_atoi_base("  +++--+++-456731hg", "0123456789"));
     printf("atoi: %x\n", ft_atoi_base("12368bcf", "0123456789abcdef"));
     printf("atoi: %x\n", ft_atoi_base(" --+0000111100001111", "01"));
@@ -129,4 +130,5 @@ int main(int argc, char** argv) {
     ft_list_remove_if(&list, &x, &free_cmp, &free);
     ft_list_remove_if(&list, &x, &remove_all, &free);
     ft_list_remove_if(&list, &x, &remove_all, &free);
+#endif
 }
