@@ -13,7 +13,7 @@ _ft_strcmp:
     movzx rcx, byte [rsi + rdx]     ; c2 = s2[i]
     test al, al                     ; c1 & c1
     je .end                         ; if (c1 == 0)
-    cmp al, al                      ; compare c1 with c2
+    cmp al, cl                      ; compare c1 with c2
     jne .end                        ; if (c1 == c2) end
     inc rdx                         ; ++i
     jmp .loop                       ; if (c1 == c2) loop
