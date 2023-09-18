@@ -26,10 +26,10 @@ $(OBJ_DIR)/%.o: $(SRC_FOLDER)/%.s
 all:	$(NAME)
 
 build:	all
-	clang L. -lasm -g main.c
+	clang -L. -lasm -g main.c
 
 build_bonus:	bonus
-	clang L. -lasm -DBONUS -g main.c
+	clang -L. -lasm -DBONUS -g main.c
 
 $(NAME): $(OBJ_DIR) $(OBJ)
 		ar rcs $(NAME) $(OBJ)
